@@ -21,16 +21,17 @@ const shuffleArray = (array) => {
 const App = () => {
   const [assignments, setAssignments] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false); 
 
   useEffect(() => {
     const shuffledPeople = shuffleArray(people);
     const shuffledQuestions = shuffleArray(questions);
     const newAssignments = shuffledPeople.map((person, index) => ({
       person,
-      question: shuffledQuestions[index], 
+      question: shuffledQuestions[index],
     }));
     setAssignments(newAssignments);
-  }, []); 
+  }, []);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % assignments.length);
@@ -41,22 +42,39 @@ const App = () => {
       className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat px-4"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-       {assignments.length > 0 && (<>
-        {/* Title */}
-          <h1 className="text-5xl font-bold text-white mb-6">{assignments[currentIndex].person}</h1>
-        {/* Card */}
-          <div className="bg-white shadow-lg rounded-3xl p-6 w-120 h-80 flex flex-col items-center justify-center text-center">
-            <p className="text-3xl font-bold text-gray-600 mt-2">{assignments[currentIndex].question}</p>
-          </div>
-        </>)}
-      {/* Next Button */}
-      <button
-        onClick={handleNext}
-        disabled={currentIndex === assignments.length - 1}
-        className="cursor-pointer mt-6 px-6 py-3 bg-purple-500 text-white rounded-3xl hover:bg-purple-600 transition text-2xl font-bold"
-      >
-        {currentIndex === assignments.length - 1 ? "DONE ✨" : "Next"}
-      </button>
+      {!hasStarted ? (
+        <button
+          onClick={() => setHasStarted(true)}
+          className="cursor-pointer px-8 py-4 bg-pink-400 text-white text-3xl font-bold rounded-3xl hover:bg-pink-500 transition shadow-lg"
+        >
+          Start Game 🚀
+        </button>
+      ) : (
+        assignments.length > 0 && (
+          <>
+            {/* Title */}
+            <h1 className="text-5xl font-bold text-white mb-6">
+              {assignments[currentIndex].person}
+            </h1>
+            {/* Card */}
+            <div className="bg-white shadow-lg rounded-3xl p-6 w-120 h-80 flex flex-col items-center justify-center text-center">
+              <p className="text-3xl font-bold text-gray-600 mt-2">
+                {assignments[currentIndex].question}
+              </p>
+            </div>
+
+            {/* Next / Done Button */}
+            <button
+              onClick={handleNext}
+              disabled={currentIndex === assignments.length - 1}
+              className={`cursor-pointer mt-6 px-6 py-3 text-white rounded-3xl text-2xl font-bold transition 
+                ${currentIndex === assignments.length - 1 ? "bg-gray-400 cursor-not-allowed" : "bg-purple-500 hover:bg-purple-600"}`}
+            >
+              {currentIndex === assignments.length - 1 ? "DONE ✨" : "Next"}
+            </button>
+          </>
+        )
+      )}
     </div>
   );
 };
