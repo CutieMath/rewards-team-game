@@ -59,10 +59,14 @@ const App = () => {
             <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-spin">
               ❤️
             </h1>
+            <br />
             <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-bounce">
               WELL DONE! BEST TEAM EVER!
             </h1>
-            <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-bounce">
+            <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-bounce opacity-70">
+              WELL DONE! BEST TEAM EVER!
+            </h1>
+            <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-bounce opacity-50">
               WELL DONE! BEST TEAM EVER!
             </h1>
           </>
