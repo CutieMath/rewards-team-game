@@ -22,6 +22,7 @@ const App = () => {
   const [assignments, setAssignments] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hasStarted, setHasStarted] = useState(false); 
+  const [gameFinished, setGameFinished] = useState(false);
 
   useEffect(() => {
     const shuffledPeople = shuffleArray(people);
@@ -34,7 +35,11 @@ const App = () => {
   }, []);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % assignments.length);
+    if (currentIndex < assignments.length - 1) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    } else {
+      setGameFinished(true);
+    }
   };
 
   return (
@@ -49,6 +54,18 @@ const App = () => {
         >
           Start Game 🚀
         </button>
+      ) : gameFinished ? (
+          <>
+            <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-spin">
+              ❤️
+            </h1>
+            <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-bounce">
+              WELL DONE! BEST TEAM EVER!
+            </h1>
+            <h1 className="text-6xl font-extrabold text-white drop-shadow-lg bg-pink animate-bounce">
+              WELL DONE! BEST TEAM EVER!
+            </h1>
+          </>
       ) : (
         assignments.length > 0 && (
           <>
@@ -66,9 +83,7 @@ const App = () => {
             {/* Next / Done Button */}
             <button
               onClick={handleNext}
-              disabled={currentIndex === assignments.length - 1}
-              className={`cursor-pointer mt-6 px-6 py-3 text-white rounded-3xl text-2xl font-bold transition 
-                ${currentIndex === assignments.length - 1 ? "bg-gray-400 cursor-not-allowed" : "bg-purple-500 hover:bg-purple-600"}`}
+              className={`cursor-pointer mt-6 px-6 py-3 text-white rounded-3xl text-2xl font-bold transition bg-purple-500 hover:bg-purple-600`}
             >
               {currentIndex === assignments.length - 1 ? "DONE ✨" : "Next"}
             </button>
