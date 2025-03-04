@@ -12,7 +12,7 @@ const questions = [
   "Is there a feeling you miss?",
 ];
 
-const people = ["Ghia", "Brain", "Peter", "Matt", "Andrew", "Soe", "Yuxin"];
+const people = ["Ghia", "Brian", "Peter", "Matt", "Andrew", "Soe", "Yuxin"];
 
 const shuffleArray = (array) => {
   return [...array].sort(() => Math.random() - 0.5);
