@@ -50,7 +50,7 @@ const App = () => {
       {!hasStarted ? (
         <button
           onClick={() => setHasStarted(true)}
-          className="cursor-pointer px-8 py-4 bg-pink-400 text-white text-3xl font-bold rounded-3xl hover:bg-pink-500 transition shadow-lg"
+          className="cursor-pointer px-8 py-4 bg-orange-400 text-white text-3xl font-bold rounded-3xl hover:bg-orange-500 transition shadow-lg"
         >
           Start Game 🚀
         </button>
@@ -87,7 +87,7 @@ const App = () => {
             {/* Next / Done Button */}
             <button
               onClick={handleNext}
-              className={`cursor-pointer mt-6 px-6 py-3 text-white rounded-3xl text-2xl font-bold transition bg-purple-500 hover:bg-purple-600`}
+              className={`cursor-pointer mt-6 px-6 py-3 text-white rounded-3xl text-2xl font-bold transition bg-orange-400 hover:bg-orange-500`}
             >
               {currentIndex === assignments.length - 1 ? "DONE ✨" : "Next"}
             </button>
