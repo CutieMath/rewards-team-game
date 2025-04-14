@@ -8,7 +8,6 @@ const questions = [
   "What is something you wouldn't want to change about yourself?",
   "What's been the best compliment a stranger has ever given you?",
   "When was the last time you surprised yourself?",
-  "Has a stranger ever changed your life?",
   "What is a compliment you wish you received more often?",
 ];
 
