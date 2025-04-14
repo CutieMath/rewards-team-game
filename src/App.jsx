@@ -3,16 +3,16 @@ import "./App.css";
 import bgImage from "./assets/bg.jpg";
 
 const questions = [
-  "What's been your happiest memory this year?",
+  "How can you become a better person?",
+  "Describe your perfect day!",
+  "What is something you wouldn't want to change about yourself?",
+  "What's been the best compliment a stranger has ever given you?",
+  "When was the last time you surprised yourself?",
   "Has a stranger ever changed your life?",
-  "What title would you give this chapter in your life?",
-  "What are you most grateful for this year?",
-  "What's been your earliest recollection of happiness?",
-  "What would your younger self not believe about your life today?",
-  "Is there a feeling you miss?",
+  "What is a compliment you wish you received more often?",
 ];
 
-const people = ["Ghia", "Brian", "Peter", "Matt", "Andrew", "Soe", "Yuxin"];
+const people = ["Brian", "Peter", "Matt", "Andrew", "Soe", "Yuxin"];
 
 const shuffleArray = (array) => {
   return [...array].sort(() => Math.random() - 0.5);
