@@ -9,9 +9,10 @@ const questions = [
   "What's been the best compliment a stranger has ever given you?",
   "When was the last time you surprised yourself?",
   "What is a compliment you wish you received more often?",
+  "What is something you wish you could be better at?",
 ];
 
-const people = ["Brian", "Peter", "Matt", "Andrew", "Soe", "Yuxin"];
+const people = ["Brian", "Peter", "Matt", "Andrew", "Soe", "Yuxin", "Lucas"];
 
 const shuffleArray = (array) => {
   return [...array].sort(() => Math.random() - 0.5);
